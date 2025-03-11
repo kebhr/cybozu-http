@@ -38,7 +38,7 @@ class Records
      * @param array|null $fields
      * @return array
      */
-    public function get($appId, $query = '', $guestSpaceId = null, $totalCount = true, array $fields = null): array
+    public function get($appId, $query = '', $guestSpaceId = null, $totalCount = true, ?array $fields = null): array
     {
         $options = ['json' => ['app' => $appId, 'query' => $query]];
         if ($totalCount) {
@@ -64,7 +64,7 @@ class Records
      * @param array|null $fields
      * @return array
      */
-    public function all($appId, $query = '', $guestSpaceId = null, array $fields = null): array
+    public function all($appId, $query = '', $guestSpaceId = null, ?array $fields = null): array
     {
         $result = [];
         $result[0] = $this->get($appId, $query . ' limit ' . self::MAX_GET_RECORDS, $guestSpaceId, true, $fields);
